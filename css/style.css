@@ -61,7 +61,7 @@ div.my-next > span::after{
 div.reverse > span::after{
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
-    content: "\f074";
+    content: "\f0ec";
     line-height: 30px;
 }
 .overlay{
