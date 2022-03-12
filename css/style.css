@@ -2,19 +2,19 @@ body{
     font-family: "Montserrat", sans-serif;
 }
 
-div.my-carousel-container{
+/* div.my-carousel-container{
     min-height: 700px;
     min-width:800px ;
     background-color: aquamarine;
-}
-
+} */
+/* 
 div.my-carousel-images{
     background-color: cadetblue;
     min-height: 540px;
-}
+} */
 
 div.my-thumbnails{
-    background-color: violet;
+    /* background-color: violet; */
     display: flex;
 }
 
