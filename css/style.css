@@ -2,11 +2,12 @@ body{
     font-family: "Montserrat", sans-serif;
 }
 
-/* div.my-carousel-container{
-    min-height: 700px;
+div.my-carousel-container{
+    /* min-height: 700px;
     min-width:800px ;
-    background-color: aquamarine;
-} */
+    background-color: aquamarine; */
+    position:relative;
+}
 /* 
 div.my-carousel-images{
     background-color: cadetblue;
@@ -19,7 +20,8 @@ div.my-thumbnails{
 }
 
 div.my-previous,
-div.my-next{
+div.my-next,
+.reverse{
     height: 40px;
     width: 40px;
     border-radius: 50%;
@@ -38,18 +40,28 @@ div.my-previous{
 div.my-next{
     right: 1rem;
 }
+div.reverse{
+    top: 4%;
+    left: 3.2rem;
+}
 
 div.my-previous > span::after{
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
-    content: "\f7fb";
+    content: "\f104";
     line-height: 30px;
 }
 
 div.my-next > span::after{
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
-    content: "\f520";
+    content: "\f105";
+    line-height: 30px;
+}
+div.reverse > span::after{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f074";
     line-height: 30px;
 }
 .overlay{

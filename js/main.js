@@ -74,57 +74,59 @@ const thumbnailElements = document.getElementsByClassName('thumbnail-element');
 
 const bannerElements = document.getElementsByClassName('banner-element');
 
-
 thumbnailElements[0].classList.add('active');
 bannerElements[0].classList.remove('d-none');
 bannerElements[0].classList.add('d-block');
 
 const next = document.querySelector('.my-next');
+const reverse = document.querySelector('.reverse');
+let counter=0;
 
 let activeElement = 0;
-
+const nextFunction= function(){
+        bannerElements[activeElement].classList.remove('d-block');
+        bannerElements[activeElement].classList.add('d-none');
+        thumbnailElements[activeElement].classList.remove('active');
+        if(activeElement<bannerElements.length-1)
+            activeElement++;
+        else
+            activeElement=0;
+        bannerElements[activeElement].classList.remove('d-none');
+        bannerElements[activeElement].classList.add('d-block');
+        thumbnailElements[activeElement].classList.add('active');
+}
 next.addEventListener('click', function() {
-    if(activeElement<bannerElements.length-1){
-        bannerElements[activeElement].classList.remove('d-block');
-        bannerElements[activeElement].classList.add('d-none');
-        thumbnailElements[activeElement].classList.remove('active');
-        activeElement++;
-        bannerElements[activeElement].classList.remove('d-none');
-        bannerElements[activeElement].classList.add('d-block');
-        thumbnailElements[activeElement].classList.add('active');
-    }
-    else{
-        bannerElements[activeElement].classList.remove('d-block');
-        bannerElements[activeElement].classList.add('d-none');
-        thumbnailElements[activeElement].classList.remove('active');
-        activeElement=0;
-        bannerElements[activeElement].classList.remove('d-none');
-        bannerElements[activeElement].classList.add('d-block');
-        thumbnailElements[activeElement].classList.add('active');
-    }
+    nextFunction();
 });
 
 const previous = document.querySelector('.my-previous');
 
 activeElement = 0;
 
-previous.addEventListener('click', function() {
-    if(activeElement>=1){
+const prevFunction= function(){
+    
         bannerElements[activeElement].classList.remove('d-block');
         bannerElements[activeElement].classList.add('d-none');
         thumbnailElements[activeElement].classList.remove('active');
-        activeElement--;
-        bannerElements[activeElement].classList.remove('d-none');
-        bannerElements[activeElement].classList.add('d-block');
-        thumbnailElements[activeElement].classList.add('active');
-    }
-    else{
-        bannerElements[activeElement].classList.remove('d-block');
-        bannerElements[activeElement].classList.add('d-none');
-        thumbnailElements[activeElement].classList.remove('active');
+        if(activeElement>=1)
+            activeElement--;
+        else
         activeElement=bannerElements.length-1;
         bannerElements[activeElement].classList.remove('d-none');
         bannerElements[activeElement].classList.add('d-block');
         thumbnailElements[activeElement].classList.add('active');
-    }
+}
+previous.addEventListener('click', function() {
+    prevFunction();
 });
+
+reverse.addEventListener("click", function(){
+    counter++;
+})
+const slideShow =function(){
+    if(counter%2==0)
+        nextFunction();
+    else
+        prevFunction();
+}
+setInterval(slideShow,3000);
